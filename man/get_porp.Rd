@@ -22,7 +22,7 @@ A list with two elements: \code{df} and \code{chart}. \code{df} is a data frame 
 Computing points over replacement
 }
 \examples{
-foo <- get_porp(proj, plotTitle = "Example Data")
+foo <- get_porp(bball, plotTitle = "Example Data")
 head(foo$df)
 foo$chart
 }

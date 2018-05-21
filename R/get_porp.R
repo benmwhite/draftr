@@ -7,7 +7,7 @@
 #'
 #' @return A list with two elements: \code{df} and \code{chart}. \code{df} is a data frame with the computed points over replacement values, and \code{chart} is a ggplot object which produces the error bar chart.
 #' @examples
-#' foo <- get_porp(proj, plotTitle = "Example Data")
+#' foo <- get_porp(bball, plotTitle = "Example Data")
 #' head(foo$df)
 #' foo$chart
 

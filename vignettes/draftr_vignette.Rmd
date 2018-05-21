@@ -11,19 +11,19 @@ vignette: >
 
 One of the most important concepts in approaching fantasy sports drafts is "positional value". The main idea is to use your highest picks on players who have the highest projected number of fantasy points over the "replacement" player at their position. For example, in a 10 team fantasy football league with 1 roster spot for quarterbacks, the "replacement" quarterback is the 11th highest scoring quarterback. If this same league has 2 roster spots for running backs, then the "replacement" running back is the 21st highest scoring running back. A draft strategy that aims to construct the highest-scoring roster will use high picks on players who are projected to score the largest number of points over the "replacement" player at their position, rather than on players who are simply projected to score a large number of points.
 
-**draftr** is a package for computing the projected fantasy points over replacement based on user-supplied projection data. As our example we will use a subset of NBA players from the January 30, 2018 NBA main slate on Draft.com. This example data is included with the package as the data frame **proj**.
+**draftr** is a package for computing the projected fantasy points over replacement based on user-supplied projection data. As our example we will use a subset of NBA players from the January 30, 2018 NBA main slate on Draft.com. This example data is included with the package as the data set **bball**.
 
 ```{r}
 #devtools::install_github("benmwhite", "draftr")
 library(draftr)
-str(proj)
+str(bball)
 ```
 
 The function **get_porp()** does the heavy lifting. The user provides input data which must include the player names, positions, and the number of roster spots for each position. For every projection source included the function will find the projected "replacement" player and compute the difference between every player and that projected score. These projected differences are then averaged, with estimated floors and ceilings computed using the standard deviation of the set of projected differences. The output is a list with two elements: a new data frame with the summarized projections and a **ggplot2** object producing a chart. The "sds" argument tells the function how many standard deviations to use for the floors and ceilings. 
 
 Suppose we are in a three team draft. Using the function to compute the projected differences and produce a plot: 
 ```{r}
-my_draft <- get_porp(proj, teams = 3)
+my_draft <- get_porp(bball, teams = 3)
 head(my_draft$df)
 my_draft$chart
 ```
