@@ -9,4 +9,4 @@
 #'   \item{spots}{number of roster spots. 2 each for guards and forwards, 1 for centers}
 #'   \item{...}{example point projections from different hypothetical sources}
 #' }
-"proj"
+"bball"
