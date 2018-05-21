@@ -12,9 +12,26 @@
 #' foo$chart
 
 get_porp <- function(df, teams = 3L, sds = 3, plotTitle = NULL) {
+
+  # checks to make sure data frame input is formatted correctly -------------------
+
+
+  # verifying that the main input is a data frame object
+  stopifnot(is.data.frame(df))
+
+  # verifying that data frame is formatted appropriately
+  columntypes <- sapply(df, typeof)
+  columncheck <- unique(
+    columntypes[!(names(columntypes) %in% c("player", "position", "spots"))]
+  )
+
   stopifnot("player" %in% names(df),
             "position" %in% names(df),
-            "spots" %in% names(df))
+            "spots" %in% names(df),
+            "double" %in% columncheck,
+            length(columncheck) == 1)
+
+  # finding replacement projection
   tmp <- dplyr::mutate(
       dplyr::group_by(
         tidyr::gather(df,
@@ -22,7 +39,7 @@ get_porp <- function(df, teams = 3L, sds = 3, plotTitle = NULL) {
                       projection,
                       -c("player", "position", "spots")),
         position, source),
-      rank = dense_rank(desc(projection)))
+      rank = dplyr::dense_rank(desc(projection)))
   tmp$rep.spot <- tmp$spots * teams == tmp$rank
   repDat <- dplyr::select(dplyr::filter(tmp, rep.spot),
                   position,
@@ -30,6 +47,7 @@ get_porp <- function(df, teams = 3L, sds = 3, plotTitle = NULL) {
                   projection)
   names(repDat)[[3]] <- "rep.proj"
 
+  # computing porp and creating output ------------------
   # output is list with two objects, a data frame with the average projection, average
   # points over replacement, and estimates of the floor and ceiling points over replacement
   # based on the "sds" argument.
