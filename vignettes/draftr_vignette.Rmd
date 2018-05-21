@@ -1,6 +1,6 @@
 ---
 title: "draftr: Projected Points over Replacement with R"
-author: "Vignette Author"
+author: "Benjamin White"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
