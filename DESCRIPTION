@@ -1,0 +1,25 @@
+Package: draftr
+Type: Package
+Title: draftr: Projected Points over Replacement for Fantasy Drafts
+Version: 0.1.0
+Date: May 20, 2018
+Author: Benjamin White
+Maintainer: Benjamin White <benjamin.malilay.white@gmail.com>
+URL: https://github.com/benmwhite/draftr
+BugReports: https://github.com/benmwhite/draftr/issues
+Depends: R (>= 3.5.0)
+Imports: 
+    dplyr,
+    ggplot2,
+    tidyr
+Suggests: 
+    tidyverse,
+    knitr,
+    rmarkdown,
+    testthat
+Description: R tool for compiling and computing point projections over replacement using user-provided projections from multiple sources.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+VignetteBuilder: knitr
