@@ -1,8 +1,8 @@
 Package: draftr
 Type: Package
-Title: draftr: Projected Points over Replacement for Fantasy Drafts
+Title: Projected Points over Replacement for Fantasy Drafts
 Version: 0.1.0
-Date: May 20, 2018
+Date: 2018-05-21
 Author: Benjamin White
 Maintainer: Benjamin White <benjamin.malilay.white@gmail.com>
 URL: https://github.com/benmwhite/draftr

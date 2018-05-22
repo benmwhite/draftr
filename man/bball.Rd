@@ -9,7 +9,10 @@
   \item{player}{player names}
   \item{position}{player positions: guard, forward, and center}
   \item{spots}{number of roster spots. 2 each for guards and forwards, 1 for centers}
-  \item{...}{example point projections from different hypothetical sources}
+  \item{source1}{example point projections from different hypothetical sources}
+  \item{source2}{example point projections from different hypothetical sources}
+  \item{source3}{example point projections from different hypothetical sources}
+  \item{source4}{example point projections from different hypothetical sources}
 }}
 \usage{
 bball
